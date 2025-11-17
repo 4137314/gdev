@@ -1,0 +1,171 @@
+gdev – GNU Development Automation Tool
+======================================
+
+gdev is a tool designed to assist in the creation, configuration,
+building, testing, documentation, and distribution of software
+projects following the GNU Coding Standards.  It provides a unified and
+consistent interface for initializing new projects, generating standard
+GNU directory structures, preparing Autotools input files, coordinating
+build operations, and interacting with version control systems.
+
+gdev aims to reduce the amount of manual work required to set up and
+maintain portable software developed in C and other languages supported
+by the GNU system.  It does not replace Autoconf, Automake, Libtool,
+or related utilities; instead, it builds upon them to offer a simpler,
+more accessible workflow for both new and experienced developers.
+
+This package is free software; see the section “License” below.
+
+
+OVERVIEW
+--------
+
+The gdev tool offers the following facilities:
+
+  • Creation of new project skeletons following the GNU directory
+    layout (src/, include/, tests/, doc/, m4/, build-aux/, etc.).
+
+  • Generation of initial Autoconf and Automake files
+    (configure.ac, Makefile.am) suitable for programs or libraries.
+
+  • Integration with pkg-config for discovery and management of
+    external dependencies.
+
+  • Build management through Autotools and make.
+
+  • Support for optional test frameworks and documentation systems,
+    including Texinfo, man pages, and other GNU documentation formats.
+
+  • Version control integration with Git and optional support for
+    decentralized sharing through peer-to-peer networks.
+
+  • Facilities for publishing, mirroring, and distributing source
+    trees across traditional servers and decentralized transports.
+
+  • An extensible command hierarchy that enables additional
+    high-level operations to be added for other programming languages
+    or build systems used within the GNU project.
+
+gdev is intended to be useful both for creating new projects and for
+maintaining existing projects that follow the GNU style.  It is written
+with portability and clarity in mind.
+
+
+REQUIREMENTS
+------------
+
+The following tools are required or strongly recommended:
+
+  • A POSIX-compliant shell.
+  • Autoconf.
+  • Automake.
+  • Libtool (optional, for libraries).
+  • pkg-config.
+  • make.
+  • Git (optional).
+  • Texinfo (optional, for documentation).
+
+Some features depend on additional GNU packages.  gdev will operate
+correctly even if optional tools are not installed, although certain
+functions will not be available.
+
+
+INSTALLATION
+------------
+
+To build and install gdev, use the standard GNU installation procedure:
+
+    ./configure
+    make
+    make install
+
+You may specify installation directories through standard configure
+options such as --prefix.  For more information, consult the output of
+
+    ./configure --help
+
+
+USAGE
+-----
+
+To create a new GNU-style project directory:
+
+    gdev init PROJECT-NAME
+
+To generate Autotools input files or refresh them after modifications:
+
+    gdev buildconf
+
+To run the standard build procedure:
+
+    gdev build
+
+To run the test suite:
+
+    gdev test
+
+To generate documentation (if present):
+
+    gdev doc
+
+To manage version control or publish to remote repositories:
+
+    gdev vcs COMMAND
+    gdev publish
+
+Additional commands and options are described in the manual.
+
+
+DIRECTORY STRUCTURE
+-------------------
+
+A project created with gdev typically contains:
+
+    PROJECT/
+      src/         Source files in C or other languages.
+      include/     Public header files.
+      tests/       Optional test programs.
+      doc/         Texinfo and other documentation formats.
+      m4/          Autoconf macro files.
+      build-aux/   Helper scripts used by Autotools.
+      configure.ac Autoconf input file.
+      Makefile.am  Automake input file.
+      README       Project overview.
+      NEWS         User-visible changes.
+      AUTHORS      List of authors and contributors.
+      ChangeLog    Record of code changes.
+      COPYING      License file.
+
+This structure follows the conventions described in the GNU Coding
+Standards.
+
+
+REPORTING BUGS
+--------------
+
+Bug reports, patches, and feature suggestions are welcome.  Please send
+them to the project's issue tracker or to the appropriate mailing list
+as documented on the project web page.
+
+Patches should be formatted using "git format-patch" or "diff -u".
+
+
+COPYRIGHT
+---------
+
+Copyright (C) 2025 Free Software Foundation, Inc.
+
+This file is part of gdev.
+
+gdev is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free
+Software Foundation; either version 3 of the License, or (at your
+option) any later version.
+
+gdev is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or
+FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+A copy of the GNU General Public License is included in the file
+COPYING.
